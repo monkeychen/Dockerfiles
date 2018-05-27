@@ -10,8 +10,8 @@ else
     tar -zxf engine-deploy.tar.gz
     chown -R ssh_ovirt:ssh_ovirt /env/deploy
 
-    echo "Extracting files from default ovirt-engine source code to /env/workspace ..."
-    tar -zxf engine-src.tar.gz
-    chown -R ssh_ovirt:ssh_ovirt /env/workspace
+    # echo "Extracting files from default ovirt-engine source code to /env/workspace ..."
+    # tar -zxf engine-src.tar.gz
+    # chown -R ssh_ovirt:ssh_ovirt /env/workspace
 fi
 exec "$@"

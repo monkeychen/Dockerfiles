@@ -8,7 +8,7 @@ WORKDIR /env
 
 COPY entrypoint.sh start-engine-service.sh /env/
 
-RUN tar -zcf engine-src.tar.gz workspace
+# RUN tar -zcf engine-src.tar.gz workspace
 RUN tar -zcf engine-deploy.tar.gz deploy
 
 RUN chmod a+x /env/entrypoint.sh
