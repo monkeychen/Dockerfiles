@@ -10,7 +10,8 @@
 
 > 由于Windwos系统的特殊性，建议在Windows-10专业版或企业版（64位）系统上安装[Docker for windows][2]（直接基于Windows Hyper-V）;
 > 而之前的Windows版本则需要使用[Docker Toolbox on Windows][4]（需要借助Oracle Virtual Box）。
-> **在Windwos上激活Hyper-V意味着无法同时运行Virtual Box与VMWare workstation等其他虚拟化平台**
+
+**在Windwos上激活Hyper-V意味着无法同时运行Virtual Box与VMWare workstation等其他虚拟化平台**
 
 ## 1.2. 构建ovirt-engine镜像
 > 如果您想自己定制一个新镜像，您才需要使用本节介绍的内容。正常情况下，您可以忽略本节内容。
@@ -60,6 +61,7 @@ simiam/ovirt-engine-dev    # 镜像名
 ```
 
 * 端口映射相关信息
+
 | 服务名 | 容器内部端口 | 宿主机端口 |
 | ----- | ----- | ----- |
 |SSH|22|10022|
