@@ -41,6 +41,23 @@ docker run -d -i -t --name ovirt-engine-dev -h ovirt-engine-dev --privileged \
 simiam/ovirt-engine-dev /usr/sbin/init
 
 ```
+```
+# 参数详细说明如下：
+docker run -d -i -t        # 通用参数，参考官网
+--name ovirt-engine-dev    # 容器名
+-h ovirt-engine-dev        # 容器中OS系统的hostname，如果使用默认的部署环境，则主机名必须为:ovirt-engine-dev
+--privileged               # 配合/usr/sbin/init参数，以开启特权模式（使systemctl可用）
+-v /env/.m2/:/env/.m2      # maven本地仓库映射关系
+-v ~/env/ovirt-engine:/env/workspace       # 源码工程根目录映射关系，前者代表宿主机目录，即本地目录（下同）
+-v /env/ovirt-engine-deploy:/env/deploy    # 打包部署根目录映射关系
+-p 10022:22                # SSH端口映射关系，10022为宿主机端口
+-p 5432:5432               # Postgres数据库端口映射关系 
+-p 8080:8080               # ovirt-engine webadmin HTTP服务端口映射关系
+-p 8787:8787               # 远程调试端口映射关系 
+-p 8443:8443               # ovirt-engine webadmin HTTPS服务端口映射关系（目录不可用）
+simiam/ovirt-engine-dev    # 镜像名
+/usr/sbin/init             # 容器启动时需要执行命令，与privileged配合使用
+```
 
 * 端口映射相关信息
 | 服务名 | 容器内部端口 | 宿主机端口 |
@@ -131,7 +148,8 @@ ovirt-engine平台部署在wildfly(jboss)服务器上，但其并不是采用wil
 ## 2.4. ovirt-engine初始化
 初始化内容主要是配置ovirt-engine系统主要参数，执行数据库创建脚本等。因此如果你想重新构建数据库、修改配置参数等，则可以执行初始化命令。
 
-## 2.5. ovirt-engine容器创建参数介绍
+# 3. 其它
+## 3.1. ovirt-engine容器创建参数介绍
 本节将详细介绍创建一个ovirt-engine容器实例所指定的各参数。
 ```
 docker run -d -i -t        # 通用参数，参考官网
@@ -149,6 +167,10 @@ docker run -d -i -t        # 通用参数，参考官网
 simiam/ovirt-engine-dev    # 镜像名
 /usr/sbin/init             # 容器启动时需要执行命令，与privileged配合使用
 ```
+
+## 3.2. 可用的快捷脚本模板
+* init-engine-environment.sh  --> 使用默认的部署版本创建名为ovirt-engine-dev容器
+* start-engine-service.sh  --> 启动ovirt-engine服务
 
 ---
 
