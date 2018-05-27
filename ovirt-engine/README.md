@@ -126,7 +126,8 @@ ovirt-engine平台部署在wildfly(jboss)服务器上，但其并不是采用wil
 * 初始化：`/env/deploy/bin/engine-setup`，初始化内容主要是配置ovirt-engine系统主要参数，执行数据库创建脚本等
 * 启动：`/env/deploy/share/ovirt-engine/services/ovirt-engine/ovirt-engine.py start`，该命令是用来启动`wildfly(jboss)`服务器，从而启动ovirt-engine管理平台。
 
-**注意：以上三个命令都需要在docker容器内执行。**其中，编译webadmin阶段会消耗大量内存，建议宿主机内存至少为8G（推荐12G）。
+**注意：以上三个命令都需要在docker容器内执行。**
+其中，编译webadmin阶段会消耗大量内存，建议宿主机内存至少为8G（推荐12G）。
 
 ## 2.1. 准备源码及开发环境
 * 从ovirt-engine的github源码仓库获取一份源码至本地工作目录：`git clone https://github.com/ovirt/ovirt-engine.git`
