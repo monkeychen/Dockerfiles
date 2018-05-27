@@ -175,6 +175,9 @@ simiam/ovirt-engine-dev    # 镜像名
 * init-engine-environment.sh  --> 使用默认的部署版本创建名为ovirt-engine-dev容器
 * start-engine-service.sh  --> 启动ovirt-engine服务
 
+## 3.3. 远程调试
+如果您使用默认提供的部署环境，则可以容器已开放了`8787`远程调试端口，您通过宿主机的映射端口便可进行远程调试。
+
 ---
 
 # English
